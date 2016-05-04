@@ -1,0 +1,158 @@
+﻿@{
+    ViewBag.Title = "PassengerRegistration";
+}
+
+<div class="container">
+    <div class="col-lg-12 col-xs-12">
+        <h2 class="deshDriverHead">Passenger Registration</h2>
+
+
+        <table class="table-responsive spacing-table" id="DriveTable">
+            <tr>
+                <td>
+                    First Name
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="text" class="tableText" id="txtFirstName" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last Name
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="text" class="tableText" id="txtLastName" />
+                </td>
+            </tr>
+            @*<tr>
+                <td>
+                    Gender
+                </td>
+                <td> :</td>
+                <td>
+                    Male:   @Html.RadioButton("Gender", "Male", new { @class = "rbSpacing" })
+                    Female: @Html.RadioButton("Gender", "Female", new { @class = "rbSpacing" })
+                    Other:  @Html.RadioButton("Gender", "Other", new { @class = "rbSpacing" })
+                </td>
+            </tr>*@
+            <tr>
+                <td>
+                    Photo
+                </td>
+                <td> :</td>
+                <td>
+                    @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+                    {
+
+                        <div id="wrapper">
+                            <input id="fileUpload" type="file" style="width:100%" /><br />
+                            <div id="image-holder"> </div>
+                        </div>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Mobile Number
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="number" class="tableText" id="txtMobile" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    E-mail Address
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="email" class="tableText" id="txtEmail" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    NID Number
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="text" class="tableText" id="txtNIDno" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    NID Front Side
+                </td>
+                <td> :</td>
+                <td>
+                    @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+                    {
+
+                        <div id="wrapper">
+                            <input id="fileUpload" type="file" style="width:100%" /><br />
+                            <div id="image-holder"> </div>
+                        </div>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    NID Back Side
+                </td>
+                <td> :</td>
+                <td>
+                    @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+                    {
+
+                        <div id="wrapper">
+                            <input id="fileUpload" type="file" style="width:100%" /><br />
+                            <div id="image-holder"> </div>
+                        </div>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Emergency Contact Person Name
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="text" class="tableText" id="txtEmergencyName" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Emergency Contact Person Number
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="number" class="tableText" id="txtEmergencyNumber" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Where did you hear about Desh Express
+                </td>
+                <td> :</td>
+                <td>
+                    @Html.DropDownList("FooBarDropDown", new List<SelectListItem> 
+                    {
+                        new SelectListItem{ Text="Option 1", Value = "1"},
+                        new SelectListItem{ Text="Option 2", Value = "2" },
+                        new SelectListItem{ Text="Option 3", Value = "3" },
+                     })
+                </td>
+            </tr>
+        </table>
+
+        @using (Html.BeginForm("Second", "SignUp", FormMethod.Get))
+        {
+            <input type="submit" value="Save" class="btn btn-success pull-right driveBtn" style="width:100px"/>
+        }
+    </div>
+</div>
+

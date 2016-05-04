@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="col-lg-12 col-xs-12">
+        <h2 class="deshDriverHead">DRIVE FOR Desh-Driver</h2>
+        <div class="deshDriver">
+             <p>
+                 Much thanks to you for your interest on joining with Desh Express. Give us some details of interest so we can get in touch with you for further preparation to get you on the road.
+             </p>
+            <p>
+                <ul>
+                    <li>
+                        <strong>Instant Cash:</strong> Money in your hand for every trip you make.
+                    </li>
+                    <li>Greatest Part-time Job.</li>
+                    <li>Additional income</li>
+                    <li><strong>Adaptable hours:</strong> The more you drive, the more you money you make.</li>
+                    <li><strong>Week Bonuses:</strong> Additional bonuses each week if you hit targets. </li>
+                    <li><strong>Reward:</strong> Get money for every friend who joins and finishes 10 trips/first month.</li>
+                </ul>
+                
+            </p>
+        </div>
+        <div class="driveHeader">Become a Desh Driver by filling these easy steps:</div>
+
+        <table class="table-responsive spacing-table" id="DriveTable">
+            <tr>
+                <td>
+                    Full Name
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="text" class="tableText" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Age
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="text" class="tableText" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender
+                </td>
+                <td> :</td>
+                <td>
+                    Male:   @Html.RadioButton("Gender", "Male", new { @class = "rbSpacing" })
+                    Female: @Html.RadioButton("Gender", "Female", new { @class = "rbSpacing" })
+                    Other:  @Html.RadioButton("Gender", "Other", new { @class = "rbSpacing" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Photo
+                </td>
+                <td> :</td>
+                <td>
+                    @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+                    {
+
+                        <div id="wrapper">
+                            <input id="fileUpload" type="file" style="width:100%" /><br />
+                            <div id="image-holder"> </div>
+                        </div>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    E-mail Address
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="text" class="tableText" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Current Address
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="text" class="tableText" />
+                </td>
+            </tr>
+        </table>
+
+        @using (Html.BeginForm("Second", "SignUp", FormMethod.Get))
+        {
+            <input type="submit" value="Yey you're already halfway" class="btn btn-success pull-right driveBtn" />
+        }
+    </div>
+
+
+</div>

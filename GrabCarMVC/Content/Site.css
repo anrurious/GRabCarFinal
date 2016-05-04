@@ -1,0 +1,669 @@
+﻿body {
+    padding-top: 50px;
+    /*padding-bottom: 20px;*/
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar {
+    opacity: .9;
+}
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.driverButton {
+    background-color: white;
+    color: black;
+    border: solid 2px #f23c3c;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 13px;
+    margin:0px;
+}
+
+    .driverButton a {
+        text-decoration: none;
+    }
+
+/*Top Transparent Banner start*/
+
+.TopTransparent {
+    height: 630px;
+    opacity: .6;
+    color: white;
+    background-color: black;
+    text-decoration: none;
+}
+
+.trnsLogo {
+    padding-top: 40px;
+    height: auto;
+    width: 120px;
+}
+
+.imgSize {
+    max-width: 340px;
+    height: auto;
+}
+
+.transText {
+    color: white;
+    text-align: justify;
+    padding: 10px;
+    font-size: 1em;
+}
+
+/*Top Transparent Banner end*/
+
+/* Download App three part start*/
+.appPart {
+    height: 200px;
+    text-align: center;
+    padding: 30px;
+    color: white;
+    font-size: 1.8em;
+    font-weight: bold;
+    padding-top: 50px;
+}
+
+    .appPart a {
+        text-decoration: none;
+    }
+
+.appDown {
+    /*height: 100px;*/
+    padding: 40px;
+    color: white;
+    background-color: #363A45;
+    text-align: center;
+    /*line-height: 100px;*/
+}
+
+.appDownText {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+/* Download App three part end*/
+
+/* Pricing start*/
+
+.containerPricing {
+    background-color: #f23c3c;
+}
+
+.PriceHeader {
+    padding: 30px;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.panel {
+    border: 1px solid #2ecb71;
+    border-radius: 0;
+    transition: box-shadow 0.5s;
+}
+
+.panel-body {
+    padding: 55px;
+}
+
+.panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+
+.panel-footer .btn:hover {
+    border: 1px solid #f4511e;
+    background-color: #fff !important;
+    color: #f4511e;
+}
+
+.panel-heading {
+    color: #fff !important;
+    background-color: #2ecb71 !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.panel-footer {
+    background-color: #fff !important;
+}
+
+    .panel-footer h3 {
+        font-size: 32px;
+    }
+
+    .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+    }
+
+    .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #f4511e;
+        color: #fff;
+    }
+
+.menuItem{
+    font-weight:bold;
+}
+.driverFAQ{
+    border: 3px solid #00B140;
+    border-radius:15px;
+    padding:20px;
+    margin:5px;
+}
+.pQuestion{
+    font-weight:bold;
+}
+
+@media screen and (max-width: 500px) /* Mobile */ {
+    .deshDriverHead {
+        font-size: 1.1em;
+        padding: 10px;
+    }
+
+    .deshDriver {
+        border: solid 1px #aaa;
+        border-radius: 10px;
+        padding: 10px;
+        /*line-height: 25px;*/
+        font-size: 0.7em;
+    }
+
+    .imgSize {
+        max-width: 230px;
+        height: auto;
+    }
+
+    .driveHeader {
+        font-size: 0.8em;
+        color: #f23c3c;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    .mobile-hide {
+        font-size: .8em;
+    }
+
+    .panel-body {
+        padding: 5px;
+    }
+
+    .appPart {
+        height: 150px;
+        text-align: center;
+        padding: 10px;
+        color: white;
+        font-size: 1em;
+        font-weight: bold;
+        padding-top: 50px;
+    }
+
+    .appDownText {
+        /*height: 100px;*/
+        color: white;
+        background-color: #363A45;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .rbSpacing {
+        width: 100%;
+    }
+}
+
+/* Pricing End*/
+
+.sitemap {
+    background-color: white;
+    padding: 40px 0;
+}
+
+.footer-secTop {
+    padding: 25px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.footer-about-grab {
+    margin-bottom: 30px;
+}
+
+.socialIconFooter {
+    color: white;
+}
+
+.iconPad {
+    padding-right: 10px;
+}
+
+.socialIconFooter a {
+    text-decoration: none;
+    color: white;
+}
+
+.footerHead {
+    padding-bottom: 20px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+.grab-logo {
+    margin-bottom: 20px;
+}
+
+.grab-contact {
+    margin-top: 25px;
+}
+
+.sitemap-container {
+    color: #fbf3f3;
+    font-weight: bold;
+}
+
+.sitemapList {
+    text-decoration: none;
+    color: white;
+}
+
+.accordianStyle {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+
+
+.menu-item {
+    margin-left: -35px;
+    list-style: none;
+}
+
+    .menu-item a {
+        text-decoration: none;
+        color: white;
+    }
+
+.latestNews {
+    font-size: 2.5em;
+    color: #00B140;
+    font-weight: bold;
+}
+
+.latestNewsPic {
+    height: auto;
+    width: 100%;
+    padding: 10px;
+}
+
+
+/* carousel step starts*/
+
+.news-demo {
+    background: #fff;
+    padding: 20px;
+}
+
+    .news-demo h1 {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        color: #777;
+        margin-bottom: 40px;
+    }
+
+    .news-demo .p {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 22px;
+        margin-top: 70px;
+    }
+
+        .news-demo .p ~ p {
+            margin-top: 0;
+        }
+
+        .news-demo .p a {
+            text-decoration: underline;
+        }
+
+            .news-demo .p a:hover {
+                color: red;
+            }
+
+h3 {
+    font-size: 20px;
+    font-family: Verdana;
+    color: #515151;
+    font-weight: bold;
+}
+
+.StepHeader {
+    padding: 30px;
+    color: #f23c3c;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.stepImg {
+    height: 400px;
+    width: 300px;
+}
+
+.carousel-inner {
+    background-color: white;
+}
+
+.carousel-caption {
+    font-size: 1.3em;
+    right: 10%;
+    left: 60%;
+    top: 30%;
+    bottom: 30%;
+    text-align: justify;
+    text-shadow: none;
+    color: #00B140;
+}
+
+.carousel-indicators {
+    font-size: 2em;
+    bottom: -1%;
+    text-align: right;
+    text-shadow: none;
+    color: #f23c3c;
+}
+
+/* carousel step end*/
+
+/*Download grab start*/
+
+.downloadgrab {
+    min-height: 460px;
+    background: url(../Content/image/taxi2.jpg) no-repeat;
+    padding: 10px 0;
+    position: relative;
+    opacity: 1;
+}
+
+    .downloadgrab .section-header {
+        margin-bottom: 30px;
+    }
+
+    .downloadgrab .section-header {
+        font-family: 'Sanomat Sans Web';
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        font-size: 2.571em;
+        color: #fff;
+        text-align: center;
+        margin-top: 0px;
+    }
+
+.visible-mobile {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.or-span {
+    text-align: center;
+    height: 100%;
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0px none;
+}
+
+/*Download grab ends*/
+
+/*Layout div start*/
+
+#outer-box {
+    /*width: auto;
+    height: 100%;*/
+    display: block;
+    position: relative;
+}
+
+    /*#outer-box img {
+        width: auto;
+        height: 100%;
+    }*/
+
+    #outer-box #inner-box {
+        background: #211e1e;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        position: absolute;
+        padding: 0px;
+        transition: opacity .5s;
+        overflow-y: hidden;
+    }
+
+        #outer-box #inner-box p {
+            color: #fff;
+            line-height: 150px;
+            font-family: 'arial';
+            text-align: center;
+        }
+
+    #outer-box:hover #inner-box {
+        opacity: .9;
+        transition: opacity 1s;
+    }
+
+/*Layout div end*/
+
+/*Drive for Desh Table Start*/
+
+.deshDriver {
+    border: solid 3px #aaa;
+    border-radius: 10px;
+    padding: 40px;
+    line-height: 25px;
+    font-size: 1.2em;
+}
+
+#DriveTable {
+    width: 100%;
+}
+
+.rbSpacing {
+    width: 8%;
+}
+
+.deshDriverHead {
+    color: #00B140;
+    font-weight: bold;
+    padding: 30px;
+}
+
+.driveHeader {
+    font-size: 1.8em;
+    color: #f23c3c;
+    padding: 30px;
+    font-weight: bold;
+}
+
+.driverDiv {
+    /*border-width: 3px;
+    border-color: #00B140;
+    border-style: solid;*/
+    border: solid 3px #00B140;
+    background-color: #2ecb71 !important;
+    color: white;
+    padding: 15px;
+    margin: 2px;
+    border-width: 3px 0;
+    border-color: #00B140;
+    border-style: solid;
+    border-radius: 5px;
+    border-spacing: 0 10px;
+    border-left-width: 3px;
+    /*border-radius: 5px 0 0 5px;*/
+    border-right-width: 3px;
+    /*border-radius: 0 5px 5px 0;*/
+}
+
+.tableText {
+    color: #211e1e;
+    width: 100%;
+    border: solid 3px #00B140;
+    border-width: 3px 0;
+    border-color: #00B140;
+    border-style: solid;
+    border-radius: 5px;
+    border-spacing: 0 10px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+}
+
+.spacing-table {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 15px;
+    border-collapse: separate;
+    border-spacing: 0 5px; /* this is the ultimate fix */
+}
+
+    .spacing-table th {
+        text-align: left;
+        padding: 5px 15px;
+    }
+
+    .spacing-table td {
+        border-width: 3px 0;
+        border-color: #00B140;
+        border-style: solid;
+        background-color: #2ecb71 !important;
+        color: white;
+        padding: 5px 15px;
+    }
+
+        .spacing-table td:first-child {
+            border-left-width: 3px;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .spacing-table td:last-child {
+            border-right-width: 3px;
+            border-radius: 0 5px 5px 0;
+        }
+
+
+.driveBtn {
+    padding: 10px;
+    margin: 30px;
+    font-weight: bold;
+}
+
+/*Drive for Desh Table End*/
+
+
+
+
+.socialArea {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    float: none;
+}
+
+.socialIcon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    outline: none;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.footerClass {
+    margin: 0px !important;
+    padding: 20px 0;
+    background-color: #363A45;
+    color: white;
+}
+
+.footerDownload {
+    color: white;
+    font-size: 2em;
+    padding: 20px;
+}
+
+.policylist {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+    .policylist a {
+        text-decoration: none;
+        color: white;
+    }
+
+.copyright {
+    font-family: 'Sanomat Sans Web';
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    font-size: 1.143em;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    outline: none;
+    text-align: center;
+}

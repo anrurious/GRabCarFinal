@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Final";
+}
+
+<div class="container">
+    <div class="col-lg-12 ">
+        <div class="driveHeader">Become a Desh Driver by filling these easy steps:</div>
+        <div class="col-lg-12 driverDiv">
+            <div class="col-lg-6">
+                Upload your licence photo :
+            </div>
+            <div class="col-lg-6">
+                @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+                {
+
+                    <div id="wrapper">
+                        <input id="fileUpload" type="file" style="width:100%" /><br />
+                        <div id="image-holder"> </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-12 driverDiv">
+            <div class="col-lg-6">
+                Upload National ID or passport photo :
+            </div>
+            <div class="col-lg-6">
+                @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+                {
+
+                    <div id="wrapper">
+                        <input id="fileUpload" type="file" style="width:100%" /><br />
+                        <div id="image-holder"> </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-12 driverDiv">
+            <div class="col-lg-6">
+                Upload Photo of BRTC up-to-date documents :
+            </div>
+            <div class="col-lg-6">
+                @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+                {
+
+                    <div id="wrapper">
+                        <input id="fileUpload" type="file" style="width:100%" /><br />
+                        <div id="image-holder"> </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-12 driverDiv">
+            <div class="col-lg-6">
+                Upload Photo of Insurance up-to-date documents :
+            </div>
+            <div class="col-lg-6">
+                @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+                {
+
+                    <div id="wrapper">
+                        <input id="fileUpload" type="file" style="width:100%" /><br />
+                        <div id="image-holder"> </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+        @using (Html.BeginForm("Final", "SignUp", FormMethod.Get))
+        {
+            <input type="submit" value="Yey you did it !" class="btn btn-success pull-right driveBtn" />
+        }
+    </div>
+
+
+</div>
