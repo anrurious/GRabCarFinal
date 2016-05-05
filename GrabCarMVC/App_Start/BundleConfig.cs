@@ -21,6 +21,8 @@ namespace GrabCarMVC
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/jquery.validate.min.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/vertical.news.slider.js",
                       "~/Scripts/vertical.news.slider.min.js",
@@ -31,6 +33,7 @@ namespace GrabCarMVC
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/site.css",
                       "~/Content/vertical.news.slider.css",
                       "~/Content/font-awesome.css",
