@@ -9,19 +9,22 @@
 
             @foreach (var m in Model)
             {
+                var s = "collapse"+@m.FAQId.ToString();
+                var sId = "#"+s;
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a class="accordion-toggle accordianStyle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="text-decoration:none">
+                            <a class="accordion-toggle accordianStyle" data-toggle="collapse" data-parent="#accordion" href=@sId style="text-decoration:none">
                                 @m.FAQQuestion
-                            </a><i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
+                            </a>
+                            
+                            <i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
                         </h4>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse ">
+                    <div id=@s class="panel-collapse collapse ">
                         <div class="panel-body text-justify">
                             @m.FAQAnswer
-
                         </div>
                     </div>
                 </div>
