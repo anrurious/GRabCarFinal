@@ -350,6 +350,8 @@
     <Content Include="Views\DitclTest\Details.cshtml" />
     <Content Include="Views\DitclTest\Edit.cshtml" />
     <Content Include="Views\DitclTest\Index.cshtml" />
+    <Content Include="Views\Shared\FareChart.cshtml" />
+    <Content Include="Views\Shared\Faq.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

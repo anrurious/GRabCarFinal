@@ -1,0 +1,149 @@
+﻿@model IEnumerable<GrabCarMVC.Models.FAQ>
+
+<div class="row">
+    <div class="container">
+        <div class="text-center" style="font-size:1.5em;font-weight:bold;padding-bottom:25px">
+            Frequently Asked Questions
+        </div>
+        <div class="panel-group" id="accordion">
+
+            @foreach (var m in Model)
+            {
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle accordianStyle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="text-decoration:none">
+                                @m.FAQQuestion
+                            </a><i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse ">
+                        <div class="panel-body text-justify">
+                            @m.FAQAnswer
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            }
+
+
+        </div>
+    </div>
+</div>
+
+
+@*<div class="row">
+    <div class="container">
+        <div class="text-center" style="font-size:1.5em;font-weight:bold;padding-bottom:25px">
+            Frequently Asked Questions
+        </div>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle accordianStyle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="text-decoration:none">
+                            Why use Desh Economy & Desh Premium?
+                        </a><i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse ">
+                    <div class="panel-body text-justify">
+                        Desh Economy and Desh Premium is the simplest alternative option for any methods of transportation. Both Desh Economy and Desh Premium holds up to the most amazing security guidelines for the travelers and drivers. Further more, Desh Economy and Desh Premium providing the most safest, affordable, cleanest transport solution.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle accordianStyle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" style="text-decoration:none">
+                            What is Desh Economy and Desh Premium?
+                        </a><i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body text-justify">
+                        Desh Economy and Desh Premium is your platform that offers the fastest booking service for private cars. Desh Economy offers casual rides for regular usage, while Desh Premium is a first-class service for the elegant passengers who want a more luxurious, extraordinary and memorable experience.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle accordianStyle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" style="text-decoration:none">
+                            Where is this service available?
+                        </a><i class="indicator glyphicon glyphicon-chevron-down pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body text-justify">
+                        Dhaka.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle accordianStyle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" style="text-decoration:none">
+                            What are the Desh Express working hours?
+                        </a><i class="indicator glyphicon glyphicon-chevron-down pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse">
+                    <div class="panel-body text-justify">
+                        The Desh Express operation works 24 hours a day consistently, however subject to accessibility of rides during the moment of booking.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle accordianStyle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" style="text-decoration:none">
+                            How does GrabCar charge our fare?
+                        </a><i class="indicator glyphicon glyphicon-chevron-down pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse">
+                    <div class="panel-body text-justify">
+                        Desh Express keeps running on fixed-rate basis. The charges/fair are calculated based on the distance between the pick-up and drop-off points.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle accordianStyle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" style="text-decoration:none">
+                            Are there changes of fare?
+                        </a><i class="indicator glyphicon glyphicon-chevron-down pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse">
+                    <div class="panel-body text-justify">
+                        Yes, Desh Express charges according to Pick-hour, off-pick hour and midnight-hour rates. Fares are allowed to change during time to time. For more info please look up our fair cart.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle accordianStyle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" style="text-decoration:none">
+                            How do customer pay their fare?
+                        </a><i class="indicator glyphicon glyphicon-chevron-down pull-right"></i>
+                    </h4>
+                </div>
+                <div id="collapseSeven" class="panel-collapse collapse">
+                    <div class="panel-body text-justify">
+                        You can pay using cash or through Bkash subject to availability. Even with our DeshPay service, which will be available to you very soon.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>*@

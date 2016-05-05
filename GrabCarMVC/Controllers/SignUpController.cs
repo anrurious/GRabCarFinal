@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrabCarMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace GrabCarMVC.Controllers
 {
     public class SignUpController : Controller
     {
+        private deshConnection db = new deshConnection();
         //
         // GET: /SignUp/
         public ActionResult Index()
@@ -17,7 +19,10 @@ namespace GrabCarMVC.Controllers
 
         public ActionResult FAQ()
         {
-            return View();
+            var model = db.FAQs.Where(x => x.Flag == 2).ToList();
+
+            return View(model);
+        
         }
         public ActionResult Final()
         {

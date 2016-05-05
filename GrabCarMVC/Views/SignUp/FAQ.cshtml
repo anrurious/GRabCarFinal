@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<GrabCarMVC.Models.FAQ>
 @{
     ViewBag.Title = "FAQ";
 }
@@ -9,11 +9,24 @@
 <div class="container">
     <h2 class="deshDriverHead">Frequently asked questions (For Drivers)</h2>
 
-    <div class="col-lg-12 col-xs-12 driverFAQ">
+    @foreach(var m in Model)
+    {
+        <div class="col-lg-12 col-xs-12 driverFAQ">
+        <p class="pQuestion">@m.FAQQuestion</p>
+        <hr />
+        <p>@m.FAQAnswer</p>
+    </div>
+    
+    }
+
+
+    @*<div class="col-lg-12 col-xs-12 driverFAQ">
         <p class="pQuestion">How do I become a Desh Driver?</p>
         <hr />
         <p>Simply register with us on the 3-step registration process. </p>
     </div>
+
+
     <div class="col-lg-12 col-xs-12 driverFAQ">
         <p class="pQuestion">How Does The App Works?</p>
         <hr />
@@ -53,6 +66,6 @@
         <p class="pQuestion">How do customer pay their fare?</p>
         <hr />
         <p>Customers can pay using cash or through Bkash subject to availability. Even with our DeshPay service, which will be available to you very soon.</p>
-    </div>
+    </div>*@
 </div>
 
