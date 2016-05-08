@@ -139,12 +139,18 @@
                 </td>
                 <td> :</td>
                 <td>
-                    @Html.DropDownList("FooBarDropDown", new List<SelectListItem> 
-                    {
-                        new SelectListItem{ Text="Option 1", Value = "1"},
-                        new SelectListItem{ Text="Option 2", Value = "2" },
-                        new SelectListItem{ Text="Option 3", Value = "3" },
-                     })
+                    <select name="state" class="form-control selectpicker">
+                        <option value=" ">Please select your state</option>
+                        <option>Friends</option>
+                        <option>Family</option>
+                        <option>Coworkers</option>
+                        <option>Newspapers</option>
+                        <option>Radio</option>
+                        <option>TV</option>
+                        <option>Email</option>
+                        <option>Otherssssss</option>
+                        
+                    </select>
                 </td>
             </tr>
         </table>
