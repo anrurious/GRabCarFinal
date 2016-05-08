@@ -1,14 +1,17 @@
 ﻿using GrabCarMVC.Models;
+using GrabCarMVC.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace GrabCarMVC.Controllers
 {
     public class HomeController : Controller
     {
+        
         private deshConnection db = new deshConnection();
         public ActionResult Index()
         {
@@ -19,7 +22,24 @@ namespace GrabCarMVC.Controllers
 
         public ActionResult FareChart()
         {
-            return PartialView();
+            //FareChartVM f = new FareChartVM();
+            //var model=db.FairCharts.Join
+            //          db.ServiceTypes
+
+            var model = (from fc in db.FairCharts
+                        join t in db.ServiceTypes on fc.ServiceType equals t.id
+                        join s in db.ServiceTimeSlots on fc.TimeSlot equals s.id
+
+                        select new FareChartVM
+                        {
+                            ServiceType1 = t.ServiceType1,
+                            TimeSlot=s.TimeSlot,
+                            PickUp=fc.PickUp,
+                            PerKiloCost=fc.PerKiloCost
+                        }).ToList();
+
+            return PartialView(model);
+
         }
 
         public ActionResult Faq()

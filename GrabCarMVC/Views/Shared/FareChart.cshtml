@@ -1,82 +1,109 @@
-﻿<div class="row containerPricing">
+﻿@model List<GrabCarMVC.Models.ViewModels.FareChartVM>
+
+@*@foreach (var m in Model)
+    {
+        <div>
+            @Html.Raw(@m.TimeSlot)
+        </div>
+
+        <div>
+            @m.PerKiloCost
+        </div>
+
+        <div>
+            @m.ServiceType1
+        </div>
+        <div>
+            @m.PickUp
+        </div>
+    }*@
+<div class="row containerPricing">
     <div class="container">
         <div class="text-center PriceHeader">
             Fare Chart: (Economy)
         </div>
     </div>
-    <div class="container mobile-hide">
+
+<div class="container mobile-hide">
+    @foreach (var item in Model.Select(x => x.ServiceType1).Distinct())
+    {
+
+
         <div class="col-sm-6">
             <div class="panel panel-default text-center">
                 <div class="panel-heading">
-                    <h1>Desh Car</h1>
+                    <h1>@item</h1>
                 </div>
+
+
                 <div class="panel-body">
                     <table class="table-responsive" style="padding:25px">
+
                         <tr style="border: solid 1px #2ecb71; ">
                             <td></td>
-                            <td>
-                                7am - 12pm (Off-Pick)
-                            </td>
-                            <td>
-                                12pm - 10pm (Pick-Hour)
-                            </td>
-                            <td>
-                                10pm-7am (Midnight)
-                            </td>
+
+                            @foreach (var m in Model)
+                            {
+                                if (item == m.ServiceType1)
+                                {
+
+                                    <td>
+                                        @Html.Raw(@m.TimeSlot)
+                                        @*@m.TimeSlot*@
+                                    </td>
+                                }
+                            }
+
                         </tr>
-                        <tr style="border: solid 1px #2ecb71">
+
+
+
+                        <tr style="border: solid 1px #2ecb71; ">
                             <td><strong>Pickup Cost:</strong></td>
-                            <td>TK- 60</td>
-                            <td>Tk- 50</td>
-                            <td>Tk- 80</td>
+                            @foreach (var m in Model)
+                            {
+                                if (item == m.ServiceType1)
+                                {
+                                    <td>
+                                        @m.PickUp
+                                        @*@m.TimeSlot*@
+                                    </td>
+                                }
+                            }
                         </tr>
+
                         <tr style="border: solid 1px #2ecb71; ">
                             <td><strong>Per kilo Charge:</strong></td>
-                            <td>TK- 20</td>
-                            <td>Tk- 25</td>
-                            <td>Tk- 30</td>
+                            @foreach (var m in Model)
+                            {
+                                if (item == m.ServiceType1)
+                                {
+                                    <td>
+                                        @m.PerKiloCost
+                                        @*@m.TimeSlot*@
+                                    </td>
+                                }
+                            }
                         </tr>
+
                     </table>
                 </div>
 
 
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                    <h1>Desh Premium</h1>
-                </div>
-                <div class="panel-body">
-                    <table class="table-responsive">
-                        <tr style="border: solid 1px #2ecb71; ">
-                            <td></td>
-                            <td>
-                                7am - 12pm (Off-Pick)
-                            </td>
-                            <td>
-                                12pm - 10pm (Pick-Hour)
-                            </td>
-                            <td>
-                                10pm-7am (Midnight)
-                            </td>
-                        </tr>
-                        <tr style="border: solid 1px #2ecb71; ">
-                            <td><strong>Pickup Cost:</strong></td>
-                            <td>TK- 100</td>
-                            <td>Tk- 100</td>
-                            <td>Tk- 100</td>
-                        </tr>
-                        <tr style="border: solid 1px #2ecb71; ">
-                            <td><strong>Per kilo Charge:</strong></td>
-                            <td>TK- 30</td>
-                            <td>Tk- 25</td>
-                            <td>Tk- 30</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
 
-    </div>
+ 
+    }
 </div>
+</div>
+
+
+
+
+
+
+
+
+
+
