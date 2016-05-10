@@ -31,9 +31,36 @@ namespace GrabCarMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignIn(string user,string pass)
         {
+            var result = db.Paxes
+                          .Where(oh => oh.email == user)
+                          .Select(oh => new { id = oh.id })
+                          .ToList();
+
+            if (result.Count > 0)
+            {
+                return RedirectToAction("PassengerHome", "Passenger", new { id = result[0].id });
+            }
+
+
+            else
+            {
+                return View();
+            }
+            
+            // return View(db.Paxes.ToList());
+        }
+
+        public ActionResult PassengerHome(int? id)
+        {
+            TempData["driv"] = id.ToString();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
             return View();
-            // return View(db.Paxes.ToList());
+
         }
 
 
@@ -88,10 +115,10 @@ namespace GrabCarMVC.Controllers
             //user_driver.picture = files[0].FileName;
             
             var xy = "";
-            //var photopath = "D:/ICSE/y/";
+            var photopath = "D:/ICSE/y/";
             //var photopath = "C:/inetpub/wwwroot/deshexpressbd/images/passanger/";
 
-            var photopath = "C:/inetpub/wwwroot/deshexpressbd/images/passanger/";
+            //var photopath = "C:/inetpub/wwwroot/deshexpressbd/images/passanger/";
             
 
             #region WorkWithImages
