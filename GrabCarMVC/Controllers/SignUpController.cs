@@ -193,7 +193,7 @@ namespace GrabCarMVC.Controllers
             //user_driver user_driver = db.user_driver.Find(user);
 
             var result = db.user_driver
-                            .Where(oh => oh.phone == user)                            
+                            .Where(oh => oh.email == user)                            
                             .Select(oh => new {id = oh.id})
                             .ToList();
 
