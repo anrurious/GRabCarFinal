@@ -49,9 +49,9 @@ namespace GrabCarMVC.Controllers
            
 
             var xy="";
-            //var photopath = "D:/ICSE/x/";
+            var photopath = "D:/ICSE/x/";
 
-            var photopath = "C:/inetpub/wwwroot/deshexpressbd/images/driver/";
+           // var photopath = "C:/inetpub/wwwroot/deshexpressbd/images/driver/";
 
 
             #region WorkWithImages
@@ -189,9 +189,7 @@ namespace GrabCarMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(string user,string pass)
-        {
-            //user_driver user_driver = db.user_driver.Find(user);
-
+        {          
             var result = db.user_driver
                             .Where(oh => oh.email == user)                            
                             .Select(oh => new {id = oh.id})
@@ -202,16 +200,7 @@ namespace GrabCarMVC.Controllers
                 return RedirectToAction("DriverHome", "SignUp", new { id = result[0].id});
             }
 
-            //if (user_driver == null)
-            //{
-            //    return HttpNotFound();
-            //}
-           
-            //if (user == "ankur")
-            //{
-               
-                
-            //}
+          
             else
             {
                 return View();
@@ -226,13 +215,9 @@ namespace GrabCarMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //user_driver user_driver = db.user_driver.Find(id);
-            //if (user_driver == null)
-            //{
-            //    return HttpNotFound();
-            //}
+        
             return View();
-            //return View();
+            
         }
 
       
