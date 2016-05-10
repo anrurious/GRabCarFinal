@@ -163,7 +163,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnkurController.cs" />
     <Compile Include="Controllers\DitclTestController.cs" />
+    <Compile Include="Controllers\DriverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PassengerController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -174,6 +176,9 @@
       <DependentUpon>DeshEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\booking_driver.cs">
+      <DependentUpon>DeshEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactU.cs">
       <DependentUpon>DeshEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DeshEntity.Context.cs">
@@ -216,6 +221,9 @@
       <DependentUpon>DeshEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Pax.cs">
+      <DependentUpon>DeshEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PayPageObject.cs">
       <DependentUpon>DeshEntity.tt</DependentUpon>
     </Compile>
@@ -354,6 +362,20 @@
     <Content Include="Views\DitclTest\Index.cshtml" />
     <Content Include="Views\Shared\FareChart.cshtml" />
     <Content Include="Views\Shared\Faq.cshtml" />
+    <Content Include="Views\Home\Contactex.cshtml" />
+    <Content Include="Views\Passenger\Create.cshtml" />
+    <Content Include="Views\Passenger\Delete.cshtml" />
+    <Content Include="Views\Passenger\Details.cshtml" />
+    <Content Include="Views\Passenger\Edit.cshtml" />
+    <Content Include="Views\Passenger\Index.cshtml" />
+    <Content Include="Views\Driver\Create.cshtml" />
+    <Content Include="Views\Driver\Delete.cshtml" />
+    <Content Include="Views\Driver\Details.cshtml" />
+    <Content Include="Views\Driver\Edit.cshtml" />
+    <Content Include="Views\Driver\Index.cshtml" />
+    <Content Include="Views\SignUp\Login.cshtml" />
+    <Content Include="Views\Passenger\SignIn.cshtml" />
+    <Content Include="Views\SignUp\DriverHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,7 +1,76 @@
-﻿@{
+﻿@model GrabCarMVC.Models.user_driver
+
+@{
     ViewBag.Title = "Index";
 }
 
+@*@using (Html.BeginForm())*@
+
+
+<script type="text/javascript">
+    function show(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#user_img').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function show2(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#user_img2').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+    function show3(input)
+    {
+        if (input.files && input.files[0])
+        {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#user_img3').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function show4(input)
+    {
+        if (input.files && input.files[0])
+        {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e)
+            {
+                $('#user_img4').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function show5(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $('#user_img5').attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+
+</script>  
+
+@using(Html.BeginForm("Index", "SignUp", FormMethod.Post, new {
+    enctype = "multipart/form-data"
+}))
+
+{
+    @Html.AntiForgeryToken()
+    
 <div class="container">
     <div class="col-lg-12 col-xs-12">
         <h2 class="deshDriverHead">DRIVE FOR Desh-Driver</h2>
@@ -23,7 +92,8 @@
                 
             </p>
         </div>
-        <div class="driveHeader">Become a Desh Driver by filling these easy steps:</div>
+        <div class="driveHeader">Become a Desh Driver by filling these 3 easy steps:</div>
+        <div class="driveHeader">Step 1:</div>
 
         <table class="table-responsive spacing-table" id="DriveTable">
             <tr>
@@ -32,16 +102,70 @@
                 </td>
                 <td> :</td>
                 <td>
-                    <input type="text" class="tableText" />
+                    @*@Html.EditorFor(model => model.first_name)*@
+                    <input type="text" class="tableText" id="fullname" name="fullname"/>
                 </td>
             </tr>
+            @*<tr>
+                <td>
+
+                    <label for="file1">Filename:</label>
+                  <input type="file" name="files" id="file1" onchange="show(this)" />
+
+                
+                </td>
+                <td>
+                 <div> <img id = "user_img"
+                    height = "100"
+                    width = "90"
+                    style = "border:solid" /> </div> 
+                </td>
+            </tr>*@
+
+            @*<tr>
+                <td>
+                    <label for="file2">Filename:</label>
+                    <input type="file" name="files" id="file2" onchange="show2(this)" />
+
+                </td>
+                <td>
+                    <div>
+                        <img id="user_img2"
+                             height="100"
+                             width="90"
+                             style="border:solid" />
+                    </div>
+                </td>
+            </tr>*@
+            @*
+             <tr>
+                <td>
+                    Image
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="file" title="search image" id="file" name="files"  /> 
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Image2
+                </td>
+                <td> :</td>
+                <td>
+                    <input type="file" title="image 2" id="file2" name="files"  />
+                </td>
+            </tr>                
+                *@
+
             <tr>
                 <td>
                     Age
                 </td>
                 <td> :</td>
                 <td>
-                    <input type="text" class="tableText" />
+                    <input type="text" class="tableText" name="age" />
                 </td>
             </tr>
             <tr>
@@ -50,9 +174,9 @@
                 </td>
                 <td> :</td>
                 <td>
-                    Male:   @Html.RadioButton("Gender", "Male", new { @class = "rbSpacing" })
-                    Female: @Html.RadioButton("Gender", "Female", new { @class = "rbSpacing" })
-                    Other:  @Html.RadioButton("Gender", "Other", new { @class = "rbSpacing" })
+                    Male:   @Html.RadioButton("gender", "Male", new { @class = "rbSpacing" })
+                    Female: @Html.RadioButton("gender", "Female", new { @class = "rbSpacing" })
+                    Other:  @Html.RadioButton("gender", "Other", new { @class = "rbSpacing" })
                 </td>
             </tr>
             <tr>
@@ -60,16 +184,19 @@
                     Photo
                 </td>
                 <td> :</td>
-                <td>
-                    @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
-                            new { enctype = "multipart/form-data" }))
-                    {
-
+                <td>                
                         <div id="wrapper">
-                            <input id="fileUpload" type="file" style="width:100%" /><br />
-                            <div id="image-holder"> </div>
+                            @*<input id="fileUpload" type="file" style="width:100%" />*@                            
+                            <input type="file" name="files" id="file1" onchange="show(this)" />
+                            <br />
+                            <div>
+                                <img id="user_img"
+                                     height="100"
+                                     width="90"
+                                     style="border:solid" />
+                            </div>  
                         </div>
-                    }
+                    
                 </td>
             </tr>
             <tr>
@@ -78,7 +205,7 @@
                 </td>
                 <td> :</td>
                 <td>
-                    <input type="text" class="tableText" />
+                    <input type="text" class="tableText" name="email" />
                 </td>
             </tr>
             <tr>
@@ -87,16 +214,150 @@
                 </td>
                 <td> :</td>
                 <td>
-                    <input type="text" class="tableText" />
+                    <input type="text" class="tableText" name="address" />
                 </td>
             </tr>
         </table>
 
-        @using (Html.BeginForm("Second", "SignUp", FormMethod.Get))
+        @*@using (Html.BeginForm("Second", "SignUp", FormMethod.Get))
         {
             <input type="submit" value="Yey you're already halfway" class="btn btn-success pull-right driveBtn" />
-        }
+        }*@
+    </div>
+
+  
+    <!--Ankur Trial--> 
+  
+        <div class="col-lg-12 ">
+            <div class="driveHeader">Step 2:</div>
+            <div class="col-lg-12 driverDiv">
+                <div class="col-lg-6">
+                    What car or model do you drive ?
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" class="tableText" placeholder="eg : toyota corolla" name="car_model_no" />
+                </div>
+            </div>
+            <div class="col-lg-12 driverDiv">
+                <div class="col-lg-6">
+                    What is the year of manufacture for your car?
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" class="tableText" placeholder="eg : 2006" name="manufacture_year" />
+                </div>
+            </div>
+            <div class="col-lg-12 driverDiv">
+                <div class="col-lg-6">
+                    Specify the CC of your car
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" class="tableText" placeholder="eg : 800-1900 or 2000-5000" />
+                </div>
+            </div>
+            <div class="col-lg-12 driverDiv">
+                <div class="col-lg-6">
+                    Car Number plate
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" class="tableText" name="car_no" />
+                </div>
+            </div>
+
+
+            @*@using (Html.BeginForm("Final", "SignUp", FormMethod.Get))
+            {
+                <input type="submit" value="Yey you’re almost done !" class="btn btn-success pull-right driveBtn" />
+            }*@
+        </div>
+
+
+    <div class="col-lg-12 ">
+        <div class="driveHeader">Step 3:</div>
+        <div class="col-lg-12 driverDiv">
+            <div class="col-lg-6">
+                Upload your licence photo :
+            </div>
+            <div class="col-lg-6">              
+
+                    <div id="wrapper">
+
+                        <input type="file" name="files" id="file2" onchange="show2(this)" /><br />
+                        <div>
+                            <img id="user_img2"
+                                 height="100"
+                                 width="90"
+                                 style="border:solid" />
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-12 driverDiv">
+            <div class="col-lg-6">
+                Upload National ID or passport photo :
+            </div>
+            <div class="col-lg-6">
+
+                <div id="wrapper">
+                    <input type="file" name="files" id="file3" onchange="show3(this)" /><br />
+                    <div>
+                        <img id="user_img3"
+                             height="100"
+                             width="90"
+                             style="border:solid" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-12 driverDiv">
+            <div class="col-lg-6">
+                Upload Photo of BRTC up-to-date documents :
+            </div>
+            <div class="col-lg-6">
+
+                <div id="wrapper">
+                    <input type="file" name="files" id="file4" onchange="show4(this)" /><br />
+                    <div>
+                        <img id="user_img4"
+                             height="100"
+                             width="90"
+                             style="border:solid" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-12 driverDiv">
+            <div class="col-lg-6">
+                Upload Photo of Insurance up-to-date documents :
+            </div>
+            <div class="col-lg-6">
+
+                <div id="wrapper">
+                    <input type="file" name="files" id="file5" onchange="show5(this)" /><br />
+                    <div>
+                        <img id="user_img5"
+                             height="100"
+                             width="90"
+                             style="border:solid" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success pull-right driveBtn" />
+            </div>
+        </div>
     </div>
 
 
+   
 </div>
+}
+    
