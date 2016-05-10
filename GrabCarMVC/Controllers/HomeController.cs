@@ -64,5 +64,22 @@ namespace GrabCarMVC.Controllers
 
             return View();
         }
+
+         [HttpPost]
+        public ActionResult Contact(ContactU c)
+        {
+            if (ModelState.IsValid)
+            {
+               // db.ItemParts.Add(itempart);
+                db.ContactUs.Add(c);
+                db.SaveChanges();
+                ViewBag.Message = "Success";
+                return View();
+            }
+
+            ViewBag.Message = "Not Sent this time";
+
+            return View();
+        }
     }
 }

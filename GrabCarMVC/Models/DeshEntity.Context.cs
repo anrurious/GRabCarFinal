@@ -25,10 +25,13 @@ namespace GrabCarMVC.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ContactU> ContactUs { get; set; }
         public virtual DbSet<ditcltest> ditcltests { get; set; }
+        public virtual DbSet<Pax> Paxes { get; set; }
         public virtual DbSet<PayPageObjectRole> PayPageObjectRoles { get; set; }
         public virtual DbSet<PayPageObject> PayPageObjects { get; set; }
         public virtual DbSet<PayRole> PayRoles { get; set; }
+        public virtual DbSet<user_driver> user_driver { get; set; }
         public virtual DbSet<AppUser> AppUsers { get; set; }
         public virtual DbSet<booking_driver> booking_driver { get; set; }
         public virtual DbSet<driver_rating> driver_rating { get; set; }
@@ -42,6 +45,5 @@ namespace GrabCarMVC.Models
         public virtual DbSet<ServiceType> ServiceTypes { get; set; }
         public virtual DbSet<tblInstruction> tblInstructions { get; set; }
         public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<user_driver> user_driver { get; set; }
     }
 }

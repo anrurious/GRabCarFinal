@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="clearfix">
+
+</div>
+<div class="clearfix">
+
+</div>
+
+<br />
+<br />
+<br />
+
+<h2>Driver Login</h2>
+
+@using (Html.BeginForm("Login", "SignUp",
+            new { ReturnUrl = ViewBag.ReturnUrl },
+            FormMethod.Post, new { @class = "well form-horizontal" }))
+{
+        @Html.AntiForgeryToken()
+    <div class="form-group">
+        <input name="user" placeholder="E-Mail Address" class="form-control" type="text">
+    </div>
+
+    <div class="form-group">
+        <input name="pass" placeholder="E-Mail Address" class="form-control" type="password">
+    </div>
+
+    <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                    </div>
+   </div>
+}
+
+

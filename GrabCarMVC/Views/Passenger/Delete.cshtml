@@ -1,0 +1,128 @@
+﻿@model GrabCarMVC.Models.Pax
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Pax</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NidNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NidNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NidFront)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NidFront)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NidBack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NidBack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmerPName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmerPName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmerPNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmerPNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WhereDesh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WhereDesh)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

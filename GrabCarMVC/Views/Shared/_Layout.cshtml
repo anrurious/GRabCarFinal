@@ -56,6 +56,14 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    <li>@Html.ActionLink("Driver Registration", "Index", "SignUp")</li>
+                    <li>@Html.ActionLink("Driver Login", "Login", "SignUp")</li>
+
+                    <li>@Html.ActionLink("Passenger Registration", "Create", "Passenger")</li>
+
+                    <li>@Html.ActionLink("Passenger Login", "SignIn", "Passenger")</li>
+                 
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

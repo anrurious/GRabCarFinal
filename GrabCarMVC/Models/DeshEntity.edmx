@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="a5106059_abcdappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="a5106059_abcdappModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'a5106059_abcdapp.dbo.AppUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AppUser">
@@ -40,6 +40,16 @@ warning 6002: The table/view 'a5106059_abcdapp.dbo.booking_driver' does not have
           <Property Name="estimated_fare" Type="varchar" MaxLength="25" />
           <Property Name="date" Type="varchar" MaxLength="55" />
           <Property Name="driver_estm_fare_charge" Type="decimal" Precision="18" Scale="8" />
+        </EntityType>
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="220" />
+          <Property Name="Email" Type="varchar" MaxLength="500" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Message" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="ditcltest">
           <Key>
@@ -152,6 +162,25 @@ warning 6002: The table/view 'a5106059_abcdapp.dbo.HowItWorks' does not have a p
           <Property Name="Createdate" Type="datetime" />
           <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
           <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Pax">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" />
+          <Property Name="pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="FName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LName" Type="nvarchar" MaxLength="100" />
+          <Property Name="photo" Type="nvarchar" MaxLength="100" />
+          <Property Name="mob" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="NidNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="NidFront" Type="nvarchar" MaxLength="100" />
+          <Property Name="NidBack" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmerPName" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmerPNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="WhereDesh" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="PayPageObjectRoles">
           <Key>
@@ -267,8 +296,6 @@ warning 6002: The table/view 'a5106059_abcdapp.dbo.user' does not have a primary
           <Property Name="gcm_reg_id" Type="varchar" MaxLength="512" />
           <Property Name="city" Type="varchar" MaxLength="55" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'a5106059_abcdapp.dbo.user_driver' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="user_driver">
           <Key>
             <PropertyRef Name="id" />
@@ -321,10 +348,13 @@ warning 6002: The table/view 'a5106059_abcdapp.dbo.user_driver' does not have a 
           <Property Name="status" Type="int" />
         </EntityType>
         <EntityContainer Name="a5106059_abcdappModelStoreContainer">
+          <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ditcltest" EntityType="Self.ditcltest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pax" EntityType="Self.Pax" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PayPageObjectRoles" EntityType="Self.PayPageObjectRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PayPageObjects" EntityType="Self.PayPageObjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PayRoles" EntityType="Self.PayRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_driver" EntityType="Self.user_driver" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AppUser" EntityType="Self.AppUser" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [AppUser].[Id] AS [Id], 
@@ -508,68 +538,68 @@ warning 6002: The table/view 'a5106059_abcdapp.dbo.user_driver' does not have a 
     [user].[city] AS [city]
     FROM [dbo].[user] AS [user]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="user_driver" EntityType="Self.user_driver" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [user_driver].[id] AS [id], 
-    [user_driver].[first_name] AS [first_name], 
-    [user_driver].[last_name] AS [last_name], 
-    [user_driver].[fullname] AS [fullname], 
-    [user_driver].[phone] AS [phone], 
-    [user_driver].[email] AS [email], 
-    [user_driver].[picture] AS [picture], 
-    [user_driver].[bio] AS [bio], 
-    [user_driver].[address] AS [address], 
-    [user_driver].[city] AS [city], 
-    [user_driver].[state] AS [state], 
-    [user_driver].[country] AS [country], 
-    [user_driver].[zipcode] AS [zipcode], 
-    [user_driver].[dog_id] AS [dog_id], 
-    [user_driver].[password] AS [password], 
-    [user_driver].[token] AS [token], 
-    [user_driver].[token_expiry] AS [token_expiry], 
-    [user_driver].[device_token] AS [device_token], 
-    [user_driver].[device_type] AS [device_type], 
-    [user_driver].[login_by] AS [login_by], 
-    [user_driver].[social_unique_id] AS [social_unique_id], 
-    [user_driver].[created_at] AS [created_at], 
-    [user_driver].[updated_at] AS [updated_at], 
-    [user_driver].[latitude] AS [latitude], 
-    [user_driver].[longitude] AS [longitude], 
-    [user_driver].[debt] AS [debt], 
-    [user_driver].[deleted_at] AS [deleted_at], 
-    [user_driver].[rate] AS [rate], 
-    [user_driver].[rate_count] AS [rate_count], 
-    [user_driver].[promo_count] AS [promo_count], 
-    [user_driver].[is_referee] AS [is_referee], 
-    [user_driver].[user_type] AS [user_type], 
-    [user_driver].[gcm_reg_id] AS [gcm_reg_id], 
-    [user_driver].[current_location_road] AS [current_location_road], 
-    [user_driver].[car_no] AS [car_no], 
-    [user_driver].[car_model_no] AS [car_model_no], 
-    [user_driver].[manufacture_year] AS [manufacture_year], 
-    [user_driver].[car_type] AS [car_type], 
-    [user_driver].[gender] AS [gender], 
-    [user_driver].[age] AS [age], 
-    [user_driver].[present_address] AS [present_address], 
-    [user_driver].[license_image] AS [license_image], 
-    [user_driver].[nid_image] AS [nid_image], 
-    [user_driver].[brtc_image] AS [brtc_image], 
-    [user_driver].[insurance_image] AS [insurance_image], 
-    [user_driver].[status] AS [status]
-    FROM [dbo].[user_driver] AS [user_driver]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="a5106059_abcdappModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="deshConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContactUs" EntityType="a5106059_abcdappModel.ContactU" />
+          <EntitySet Name="ditcltests" EntityType="a5106059_abcdappModel.ditcltest" />
+          <EntitySet Name="Paxes" EntityType="a5106059_abcdappModel.Pax" />
+          <EntitySet Name="PayPageObjectRoles" EntityType="a5106059_abcdappModel.PayPageObjectRole" />
+          <EntitySet Name="PayPageObjects" EntityType="a5106059_abcdappModel.PayPageObject" />
+          <EntitySet Name="PayRoles" EntityType="a5106059_abcdappModel.PayRole" />
+          <EntitySet Name="user_driver" EntityType="a5106059_abcdappModel.user_driver" />
+          <EntitySet Name="AppUsers" EntityType="a5106059_abcdappModel.AppUser" />
+          <EntitySet Name="booking_driver" EntityType="a5106059_abcdappModel.booking_driver" />
+          <EntitySet Name="driver_rating" EntityType="a5106059_abcdappModel.driver_rating" />
+          <EntitySet Name="FairCharts" EntityType="a5106059_abcdappModel.FairChart" />
+          <EntitySet Name="FAQs" EntityType="a5106059_abcdappModel.FAQ" />
+          <EntitySet Name="gcm_users" EntityType="a5106059_abcdappModel.gcm_users" />
+          <EntitySet Name="histories" EntityType="a5106059_abcdappModel.history" />
+          <EntitySet Name="HomePages" EntityType="a5106059_abcdappModel.HomePage" />
+          <EntitySet Name="HowItWorks" EntityType="a5106059_abcdappModel.HowItWork" />
+          <EntitySet Name="ServiceTimeSlots" EntityType="a5106059_abcdappModel.ServiceTimeSlot" />
+          <EntitySet Name="ServiceTypes" EntityType="a5106059_abcdappModel.ServiceType" />
+          <EntitySet Name="tblInstructions" EntityType="a5106059_abcdappModel.tblInstruction" />
+          <EntitySet Name="users" EntityType="a5106059_abcdappModel.user" />
+        </EntityContainer>
+        <EntityType Name="ContactU">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="220" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="ditcltest">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Pax">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="mob" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NidNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NidFront" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NidBack" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmerPName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmerPNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WhereDesh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PayPageObjectRole">
           <Key>
@@ -603,6 +633,57 @@ warning 6002: The table/view 'a5106059_abcdapp.dbo.user_driver' does not have a 
           <Property Name="CreateDate" Type="DateTime" Precision="3" />
           <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="user_driver">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fullname" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="picture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="bio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="zipcode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="dog_id" Type="Int32" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="token" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="token_expiry" Type="Int32" />
+          <Property Name="device_token" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="device_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="login_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="social_unique_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Precision="3" />
+          <Property Name="latitude" Type="Decimal" Precision="15" Scale="8" />
+          <Property Name="longitude" Type="Decimal" Precision="15" Scale="8" />
+          <Property Name="debt" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="deleted_at" Type="DateTime" Precision="3" />
+          <Property Name="rate" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="rate_count" Type="Int64" />
+          <Property Name="promo_count" Type="Int64" />
+          <Property Name="is_referee" Type="Int32" />
+          <Property Name="user_type" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="gcm_reg_id" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="current_location_road" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="car_no" Type="String" MaxLength="127" FixedLength="false" Unicode="false" />
+          <Property Name="car_model_no" Type="String" MaxLength="127" FixedLength="false" Unicode="false" />
+          <Property Name="manufacture_year" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="car_type" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="present_address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="license_image" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="nid_image" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="brtc_image" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="insurance_image" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
         </EntityType>
         <EntityType Name="AppUser">
           <Key>
@@ -800,385 +881,345 @@ warning 6002: The table/view 'a5106059_abcdapp.dbo.user_driver' does not have a 
           <Property Name="gcm_reg_id" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
           <Property Name="city" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="user_driver">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="first_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="last_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="fullname" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
-          <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="picture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="bio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="city" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="state" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="zipcode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="dog_id" Type="Int32" />
-          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="token" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="token_expiry" Type="Int32" />
-          <Property Name="device_token" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="device_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="login_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="social_unique_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="created_at" Type="DateTime" Precision="3" />
-          <Property Name="updated_at" Type="DateTime" Precision="3" />
-          <Property Name="latitude" Type="Decimal" Precision="15" Scale="8" />
-          <Property Name="longitude" Type="Decimal" Precision="15" Scale="8" />
-          <Property Name="debt" Type="Decimal" Precision="8" Scale="2" />
-          <Property Name="deleted_at" Type="DateTime" Precision="3" />
-          <Property Name="rate" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="rate_count" Type="Int64" />
-          <Property Name="promo_count" Type="Int64" />
-          <Property Name="is_referee" Type="Int32" />
-          <Property Name="user_type" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="gcm_reg_id" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
-          <Property Name="current_location_road" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="car_no" Type="String" MaxLength="127" FixedLength="false" Unicode="false" />
-          <Property Name="car_model_no" Type="String" MaxLength="127" FixedLength="false" Unicode="false" />
-          <Property Name="manufacture_year" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="car_type" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
-          <Property Name="gender" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="age" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="present_address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="license_image" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
-          <Property Name="nid_image" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
-          <Property Name="brtc_image" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
-          <Property Name="insurance_image" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
-          <Property Name="status" Type="Int32" />
-        </EntityType>
-        <EntityContainer Name="deshConnection" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ditcltests" EntityType="Self.ditcltest" />
-          <EntitySet Name="PayPageObjectRoles" EntityType="Self.PayPageObjectRole" />
-          <EntitySet Name="PayPageObjects" EntityType="Self.PayPageObject" />
-          <EntitySet Name="PayRoles" EntityType="Self.PayRole" />
-          <EntitySet Name="AppUsers" EntityType="Self.AppUser" />
-          <EntitySet Name="booking_driver" EntityType="Self.booking_driver" />
-          <EntitySet Name="driver_rating" EntityType="Self.driver_rating" />
-          <EntitySet Name="FairCharts" EntityType="Self.FairChart" />
-          <EntitySet Name="FAQs" EntityType="Self.FAQ" />
-          <EntitySet Name="gcm_users" EntityType="Self.gcm_users" />
-          <EntitySet Name="histories" EntityType="Self.history" />
-          <EntitySet Name="HomePages" EntityType="Self.HomePage" />
-          <EntitySet Name="HowItWorks" EntityType="Self.HowItWork" />
-          <EntitySet Name="ServiceTimeSlots" EntityType="Self.ServiceTimeSlot" />
-          <EntitySet Name="ServiceTypes" EntityType="Self.ServiceType" />
-          <EntitySet Name="tblInstructions" EntityType="Self.tblInstruction" />
-          <EntitySet Name="users" EntityType="Self.user" />
-          <EntitySet Name="user_driver" EntityType="Self.user_driver" />
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="a5106059_abcdappModelStoreContainer" CdmEntityContainer="deshConnection">
+          <EntitySetMapping Name="ContactUs">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.ContactU">
+              <MappingFragment StoreEntitySet="ContactUs">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ditcltests">
             <EntityTypeMapping TypeName="a5106059_abcdappModel.ditcltest">
               <MappingFragment StoreEntitySet="ditcltest">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paxes">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.Pax">
+              <MappingFragment StoreEntitySet="Pax">
+                <ScalarProperty Name="WhereDesh" ColumnName="WhereDesh" />
+                <ScalarProperty Name="EmerPNo" ColumnName="EmerPNo" />
+                <ScalarProperty Name="EmerPName" ColumnName="EmerPName" />
+                <ScalarProperty Name="NidBack" ColumnName="NidBack" />
+                <ScalarProperty Name="NidFront" ColumnName="NidFront" />
+                <ScalarProperty Name="NidNo" ColumnName="NidNo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mob" ColumnName="mob" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PayPageObjectRoles">
             <EntityTypeMapping TypeName="a5106059_abcdappModel.PayPageObjectRole">
               <MappingFragment StoreEntitySet="PayPageObjectRoles">
-                <ScalarProperty Name="PageObjAccId" ColumnName="PageObjAccId" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="PageObjectId" ColumnName="PageObjectId" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
                 <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="PageObjectId" ColumnName="PageObjectId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="PageObjAccId" ColumnName="PageObjAccId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PayPageObjects">
             <EntityTypeMapping TypeName="a5106059_abcdappModel.PayPageObject">
               <MappingFragment StoreEntitySet="PayPageObjects">
-                <ScalarProperty Name="PageObjectId" ColumnName="PageObjectId" />
-                <ScalarProperty Name="PageTypeName" ColumnName="PageTypeName" />
-                <ScalarProperty Name="PageName" ColumnName="PageName" />
-                <ScalarProperty Name="PagePath" ColumnName="PagePath" />
                 <ScalarProperty Name="PageMethodeName" ColumnName="PageMethodeName" />
+                <ScalarProperty Name="PagePath" ColumnName="PagePath" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+                <ScalarProperty Name="PageTypeName" ColumnName="PageTypeName" />
+                <ScalarProperty Name="PageObjectId" ColumnName="PageObjectId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PayRoles">
             <EntityTypeMapping TypeName="a5106059_abcdappModel.PayRole">
               <MappingFragment StoreEntitySet="PayRoles">
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AppUsers">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.AppUser">
-              <MappingFragment StoreEntitySet="AppUser">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="UpdateCardBy" ColumnName="UpdateCardBy" />
-                <ScalarProperty Name="UpdateCardDate" ColumnName="UpdateCardDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="booking_driver">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.booking_driver">
-              <MappingFragment StoreEntitySet="booking_driver">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="user_driver_id" ColumnName="user_driver_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="total" ColumnName="total" />
-                <ScalarProperty Name="pickup_name" ColumnName="pickup_name" />
-                <ScalarProperty Name="pickup_lat" ColumnName="pickup_lat" />
-                <ScalarProperty Name="pickup_lng" ColumnName="pickup_lng" />
-                <ScalarProperty Name="drop_off_name" ColumnName="drop_off_name" />
-                <ScalarProperty Name="drop_off_lat" ColumnName="drop_off_lat" />
-                <ScalarProperty Name="drop_off_lng" ColumnName="drop_off_lng" />
-                <ScalarProperty Name="distance" ColumnName="distance" />
-                <ScalarProperty Name="estimated_fare" ColumnName="estimated_fare" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="driver_estm_fare_charge" ColumnName="driver_estm_fare_charge" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="driver_rating">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.driver_rating">
-              <MappingFragment StoreEntitySet="driver_rating">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="driver_id" ColumnName="driver_id" />
-                <ScalarProperty Name="passenger_id" ColumnName="passenger_id" />
-                <ScalarProperty Name="rating" ColumnName="rating" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="date" ColumnName="date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FairCharts">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.FairChart">
-              <MappingFragment StoreEntitySet="FairChart">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
-                <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
-                <ScalarProperty Name="PickUp" ColumnName="PickUp" />
-                <ScalarProperty Name="PerKiloCost" ColumnName="PerKiloCost" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FAQs">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.FAQ">
-              <MappingFragment StoreEntitySet="FAQ">
-                <ScalarProperty Name="FAQId" ColumnName="FAQId" />
-                <ScalarProperty Name="Flag" ColumnName="Flag" />
-                <ScalarProperty Name="FAQQuestion" ColumnName="FAQQuestion" />
-                <ScalarProperty Name="FAQAnswer" ColumnName="FAQAnswer" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="gcm_users">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.gcm_users">
-              <MappingFragment StoreEntitySet="gcm_users">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="gcm_regid" ColumnName="gcm_regid" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="created_at" ColumnName="created_at" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="histories">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.history">
-              <MappingFragment StoreEntitySet="history">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="user_driver_id" ColumnName="user_driver_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="total" ColumnName="total" />
-                <ScalarProperty Name="pickup_name" ColumnName="pickup_name" />
-                <ScalarProperty Name="pickup_lat" ColumnName="pickup_lat" />
-                <ScalarProperty Name="pickup_lng" ColumnName="pickup_lng" />
-                <ScalarProperty Name="drop_off_name" ColumnName="drop_off_name" />
-                <ScalarProperty Name="drop_off_lat" ColumnName="drop_off_lat" />
-                <ScalarProperty Name="drop_off_lng" ColumnName="drop_off_lng" />
-                <ScalarProperty Name="distance" ColumnName="distance" />
-                <ScalarProperty Name="estimated_fare" ColumnName="estimated_fare" />
-                <ScalarProperty Name="date" ColumnName="date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HomePages">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.HomePage">
-              <MappingFragment StoreEntitySet="HomePage">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="HomeText" ColumnName="HomeText" />
-                <ScalarProperty Name="HomeBanner" ColumnName="HomeBanner" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HowItWorks">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.HowItWork">
-              <MappingFragment StoreEntitySet="HowItWorks">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Step" ColumnName="Step" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="Createdate" ColumnName="Createdate" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ServiceTimeSlots">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.ServiceTimeSlot">
-              <MappingFragment StoreEntitySet="ServiceTimeSlot">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ServiceTypes">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.ServiceType">
-              <MappingFragment StoreEntitySet="ServiceType">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="ServiceType1" ColumnName="ServiceType" />
-                <ScalarProperty Name="createBy" ColumnName="createBy" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
-                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblInstructions">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.tblInstruction">
-              <MappingFragment StoreEntitySet="tblInstruction">
-                <ScalarProperty Name="InsID" ColumnName="InsID" />
-                <ScalarProperty Name="Flag" ColumnName="Flag" />
-                <ScalarProperty Name="InstrucionD" ColumnName="InstrucionD" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="a5106059_abcdappModel.user">
-              <MappingFragment StoreEntitySet="user">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="picture" ColumnName="picture" />
-                <ScalarProperty Name="bio" ColumnName="bio" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
-                <ScalarProperty Name="dog_id" ColumnName="dog_id" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="token" ColumnName="token" />
-                <ScalarProperty Name="token_expiry" ColumnName="token_expiry" />
-                <ScalarProperty Name="device_token" ColumnName="device_token" />
-                <ScalarProperty Name="device_type" ColumnName="device_type" />
-                <ScalarProperty Name="login_by" ColumnName="login_by" />
-                <ScalarProperty Name="social_unique_id" ColumnName="social_unique_id" />
-                <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
-                <ScalarProperty Name="latitude" ColumnName="latitude" />
-                <ScalarProperty Name="longitude" ColumnName="longitude" />
-                <ScalarProperty Name="referred_by" ColumnName="referred_by" />
-                <ScalarProperty Name="debt" ColumnName="debt" />
-                <ScalarProperty Name="timezone" ColumnName="timezone" />
-                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="rate_count" ColumnName="rate_count" />
-                <ScalarProperty Name="promo_count" ColumnName="promo_count" />
-                <ScalarProperty Name="is_referee" ColumnName="is_referee" />
-                <ScalarProperty Name="user_type" ColumnName="user_type" />
-                <ScalarProperty Name="gcm_reg_id" ColumnName="gcm_reg_id" />
-                <ScalarProperty Name="city" ColumnName="city" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="user_driver">
             <EntityTypeMapping TypeName="a5106059_abcdappModel.user_driver">
               <MappingFragment StoreEntitySet="user_driver">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
-                <ScalarProperty Name="fullname" ColumnName="fullname" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="picture" ColumnName="picture" />
-                <ScalarProperty Name="bio" ColumnName="bio" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
-                <ScalarProperty Name="dog_id" ColumnName="dog_id" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="token" ColumnName="token" />
-                <ScalarProperty Name="token_expiry" ColumnName="token_expiry" />
-                <ScalarProperty Name="device_token" ColumnName="device_token" />
-                <ScalarProperty Name="device_type" ColumnName="device_type" />
-                <ScalarProperty Name="login_by" ColumnName="login_by" />
-                <ScalarProperty Name="social_unique_id" ColumnName="social_unique_id" />
-                <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
-                <ScalarProperty Name="latitude" ColumnName="latitude" />
-                <ScalarProperty Name="longitude" ColumnName="longitude" />
-                <ScalarProperty Name="debt" ColumnName="debt" />
-                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
-                <ScalarProperty Name="rate" ColumnName="rate" />
-                <ScalarProperty Name="rate_count" ColumnName="rate_count" />
-                <ScalarProperty Name="promo_count" ColumnName="promo_count" />
-                <ScalarProperty Name="is_referee" ColumnName="is_referee" />
-                <ScalarProperty Name="user_type" ColumnName="user_type" />
-                <ScalarProperty Name="gcm_reg_id" ColumnName="gcm_reg_id" />
-                <ScalarProperty Name="current_location_road" ColumnName="current_location_road" />
-                <ScalarProperty Name="car_no" ColumnName="car_no" />
-                <ScalarProperty Name="car_model_no" ColumnName="car_model_no" />
-                <ScalarProperty Name="manufacture_year" ColumnName="manufacture_year" />
-                <ScalarProperty Name="car_type" ColumnName="car_type" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="age" ColumnName="age" />
-                <ScalarProperty Name="present_address" ColumnName="present_address" />
-                <ScalarProperty Name="license_image" ColumnName="license_image" />
-                <ScalarProperty Name="nid_image" ColumnName="nid_image" />
-                <ScalarProperty Name="brtc_image" ColumnName="brtc_image" />
-                <ScalarProperty Name="insurance_image" ColumnName="insurance_image" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="insurance_image" ColumnName="insurance_image" />
+                <ScalarProperty Name="brtc_image" ColumnName="brtc_image" />
+                <ScalarProperty Name="nid_image" ColumnName="nid_image" />
+                <ScalarProperty Name="license_image" ColumnName="license_image" />
+                <ScalarProperty Name="present_address" ColumnName="present_address" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="car_type" ColumnName="car_type" />
+                <ScalarProperty Name="manufacture_year" ColumnName="manufacture_year" />
+                <ScalarProperty Name="car_model_no" ColumnName="car_model_no" />
+                <ScalarProperty Name="car_no" ColumnName="car_no" />
+                <ScalarProperty Name="current_location_road" ColumnName="current_location_road" />
+                <ScalarProperty Name="gcm_reg_id" ColumnName="gcm_reg_id" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="is_referee" ColumnName="is_referee" />
+                <ScalarProperty Name="promo_count" ColumnName="promo_count" />
+                <ScalarProperty Name="rate_count" ColumnName="rate_count" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="debt" ColumnName="debt" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="social_unique_id" ColumnName="social_unique_id" />
+                <ScalarProperty Name="login_by" ColumnName="login_by" />
+                <ScalarProperty Name="device_type" ColumnName="device_type" />
+                <ScalarProperty Name="device_token" ColumnName="device_token" />
+                <ScalarProperty Name="token_expiry" ColumnName="token_expiry" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="dog_id" ColumnName="dog_id" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="bio" ColumnName="bio" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppUsers">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.AppUser">
+              <MappingFragment StoreEntitySet="AppUser">
+                <ScalarProperty Name="UpdateCardDate" ColumnName="UpdateCardDate" />
+                <ScalarProperty Name="UpdateCardBy" ColumnName="UpdateCardBy" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="booking_driver">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.booking_driver">
+              <MappingFragment StoreEntitySet="booking_driver">
+                <ScalarProperty Name="driver_estm_fare_charge" ColumnName="driver_estm_fare_charge" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="estimated_fare" ColumnName="estimated_fare" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="drop_off_lng" ColumnName="drop_off_lng" />
+                <ScalarProperty Name="drop_off_lat" ColumnName="drop_off_lat" />
+                <ScalarProperty Name="drop_off_name" ColumnName="drop_off_name" />
+                <ScalarProperty Name="pickup_lng" ColumnName="pickup_lng" />
+                <ScalarProperty Name="pickup_lat" ColumnName="pickup_lat" />
+                <ScalarProperty Name="pickup_name" ColumnName="pickup_name" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_driver_id" ColumnName="user_driver_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="driver_rating">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.driver_rating">
+              <MappingFragment StoreEntitySet="driver_rating">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="passenger_id" ColumnName="passenger_id" />
+                <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FairCharts">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.FairChart">
+              <MappingFragment StoreEntitySet="FairChart">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="PerKiloCost" ColumnName="PerKiloCost" />
+                <ScalarProperty Name="PickUp" ColumnName="PickUp" />
+                <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAQs">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.FAQ">
+              <MappingFragment StoreEntitySet="FAQ">
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="FAQAnswer" ColumnName="FAQAnswer" />
+                <ScalarProperty Name="FAQQuestion" ColumnName="FAQQuestion" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="FAQId" ColumnName="FAQId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gcm_users">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.gcm_users">
+              <MappingFragment StoreEntitySet="gcm_users">
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="gcm_regid" ColumnName="gcm_regid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="histories">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.history">
+              <MappingFragment StoreEntitySet="history">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="estimated_fare" ColumnName="estimated_fare" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="drop_off_lng" ColumnName="drop_off_lng" />
+                <ScalarProperty Name="drop_off_lat" ColumnName="drop_off_lat" />
+                <ScalarProperty Name="drop_off_name" ColumnName="drop_off_name" />
+                <ScalarProperty Name="pickup_lng" ColumnName="pickup_lng" />
+                <ScalarProperty Name="pickup_lat" ColumnName="pickup_lat" />
+                <ScalarProperty Name="pickup_name" ColumnName="pickup_name" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_driver_id" ColumnName="user_driver_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomePages">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.HomePage">
+              <MappingFragment StoreEntitySet="HomePage">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="HomeBanner" ColumnName="HomeBanner" />
+                <ScalarProperty Name="HomeText" ColumnName="HomeText" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HowItWorks">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.HowItWork">
+              <MappingFragment StoreEntitySet="HowItWorks">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Step" ColumnName="Step" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceTimeSlots">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.ServiceTimeSlot">
+              <MappingFragment StoreEntitySet="ServiceTimeSlot">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceTypes">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.ServiceType">
+              <MappingFragment StoreEntitySet="ServiceType">
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="ServiceType1" ColumnName="ServiceType" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblInstructions">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.tblInstruction">
+              <MappingFragment StoreEntitySet="tblInstruction">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="InstrucionD" ColumnName="InstrucionD" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="InsID" ColumnName="InsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="a5106059_abcdappModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="gcm_reg_id" ColumnName="gcm_reg_id" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="is_referee" ColumnName="is_referee" />
+                <ScalarProperty Name="promo_count" ColumnName="promo_count" />
+                <ScalarProperty Name="rate_count" ColumnName="rate_count" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="timezone" ColumnName="timezone" />
+                <ScalarProperty Name="debt" ColumnName="debt" />
+                <ScalarProperty Name="referred_by" ColumnName="referred_by" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="social_unique_id" ColumnName="social_unique_id" />
+                <ScalarProperty Name="login_by" ColumnName="login_by" />
+                <ScalarProperty Name="device_type" ColumnName="device_type" />
+                <ScalarProperty Name="device_token" ColumnName="device_token" />
+                <ScalarProperty Name="token_expiry" ColumnName="token_expiry" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="dog_id" ColumnName="dog_id" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="bio" ColumnName="bio" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
