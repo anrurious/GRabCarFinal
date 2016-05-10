@@ -5,11 +5,14 @@
 @*<h3>@ViewBag.Message</h3>*@
 
 
-
+@using (Html.BeginForm("Contact", "Home",
+            new { ReturnUrl = ViewBag.ReturnUrl },
+            FormMethod.Post, new { @class = "well form-horizontal" }))
+{ 
 
 <div class="container" style="margin-top:50px">
 
-    <form class="well form-horizontal" action=" " method="post" id="contact_form">
+  
         <fieldset>
 
             <!-- Form Name -->
@@ -65,23 +68,7 @@
 
             <!-- Select Basic -->
 
-            <div class="form-group">
-                <label class="col-md-4 control-label">State</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="state" class="form-control selectpicker">
-                            <option value=" ">Please select your state</option>
-                            <option>Alabama</option>
-                            <option>Alaska</option>
-                            <option>Arizona</option>
-                            <option>Arkansas</option>
-                            <option>California</option>
-                            
-                        </select>
-                    </div>
-                </div>
-            </div>
+          
 
             <!-- Text input-->
 
@@ -100,13 +87,13 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        <textarea class="form-control" name="comment" rows="10" cols="40" placeholder="Your Mail"></textarea>
+                        <textarea class="form-control" name="comment" rows="10" cols="40" placeholder="Your Message"></textarea>
                     </div>
                 </div>
             </div>
 
             <!-- Success message -->
-            <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
+            @*<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> @ViewBag.Message</div>*@
 
             <!--    #success_message{ display: none;}    -->
 
@@ -120,7 +107,7 @@
             </div>
 
         </fieldset>
-    </form>
+
 </div>
 
 <!-- /.container -->
@@ -187,3 +174,4 @@
         <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
         <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
     </address>*@
+}

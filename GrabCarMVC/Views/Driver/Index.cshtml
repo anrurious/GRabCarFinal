@@ -1,0 +1,297 @@
+﻿@model IEnumerable<GrabCarMVC.Models.user_driver>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.first_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fullname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zipcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dog_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.token)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.token_expiry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.device_token)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.device_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.login_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.social_unique_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.created_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updated_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.debt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deleted_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rate_count)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.promo_count)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_referee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gcm_reg_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.current_location_road)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.car_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.car_model_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.manufacture_year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.car_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.present_address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.license_image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nid_image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brtc_image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.insurance_image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fullname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.picture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zipcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dog_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.token)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.token_expiry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.device_token)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.device_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.login_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.social_unique_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.created_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.debt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deleted_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rate_count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.promo_count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_referee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gcm_reg_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.current_location_road)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.car_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.car_model_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.manufacture_year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.car_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.present_address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.license_image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nid_image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.brtc_image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.insurance_image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

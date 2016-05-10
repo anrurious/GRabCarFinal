@@ -5,24 +5,26 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="3a9cf43062a649488fa5d0bf9e45e1fd" Name="Diagram1">
-        <EntityTypeShape EntityType="a5106059_abcdappModel.ditcltest" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.PayPageObjectRole" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.PayPageObject" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.PayRole" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.AppUser" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.booking_driver" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.driver_rating" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.FairChart" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.FAQ" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.gcm_users" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.history" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.HomePage" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.HowItWork" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.ServiceTimeSlot" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.ServiceType" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.tblInstruction" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.user" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="a5106059_abcdappModel.user_driver" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.ContactU" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.ditcltest" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.Pax" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.PayPageObjectRole" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.PayPageObject" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.PayRole" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.user_driver" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.AppUser" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.booking_driver" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.driver_rating" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.FairChart" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.FAQ" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.gcm_users" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.history" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.HomePage" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.HowItWork" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.ServiceTimeSlot" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.ServiceType" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.tblInstruction" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="a5106059_abcdappModel.user" Width="1.5" PointX="6.75" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
