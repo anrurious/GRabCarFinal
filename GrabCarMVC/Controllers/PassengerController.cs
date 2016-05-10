@@ -55,6 +55,7 @@ namespace GrabCarMVC.Controllers
         // GET: /Passenger/Create
         public ActionResult Create()
         {
+            TempData["im"] = "";
             return View();
         }
 
@@ -65,6 +66,8 @@ namespace GrabCarMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="id,userName,pass,FName,LName,photo,mob,email,NidNo,NidFront,NidBack,EmerPName,EmerPNo,WhereDesh")] Pax pax, FormCollection fc, List<HttpPostedFileBase> files)
         {
+            string err = "1";
+
             foreach (var file in files)
             {
                 if (file == null)
@@ -85,12 +88,21 @@ namespace GrabCarMVC.Controllers
             //user_driver.picture = files[0].FileName;
             
             var xy = "";
-            var photopath = "D:/ICSE/y/";
+            //var photopath = "D:/ICSE/y/";
+            //var photopath = "C:/inetpub/wwwroot/deshexpressbd/images/passanger/";
+
+            var photopath = "C:/inetpub/wwwroot/deshexpressbd/images/passanger/";
+            
 
             #region WorkWithImages
 
             foreach (var file in files)
             {
+                if (err!="1")
+                {
+                    TempData["im"] = "Sorry ! Technical Error ! Please Visit after some time !! ";
+                    return View();
+                }
                 if (file == files[0])
                 {
                     xy = "pho";
@@ -151,7 +163,20 @@ namespace GrabCarMVC.Controllers
                     //Updating DB fields End Here
                     var path = Path.Combine(photopath, finalFileName.ToString());
 
-                    file.SaveAs(path);
+                    try
+                    {
+                        file.SaveAs(path);
+                    }
+                    catch (Exception e)
+                    {
+                     
+                        //throw (ex);
+                    }
+                    finally
+                    {
+                        err = "2";
+                        TempData["im"] = "1";
+                    }
 
                     //string pathSave = "~/Content/Img/" + finalFileName;                 
                     //pi.ImgUrl = finalFileName;

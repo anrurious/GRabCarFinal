@@ -1,10 +1,21 @@
 ﻿using GrabCarMVC.Models;
+//using System;
+//using System.Collections.Generic;
+//using System.IO;
+//using System.Linq;
+//using System.Web;
+//using System.Web.Mvc;
+
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
+
 
 namespace GrabCarMVC.Controllers
 {
@@ -38,7 +49,10 @@ namespace GrabCarMVC.Controllers
            
 
             var xy="";
-            var photopath = "D:/ICSE/x/";
+            //var photopath = "D:/ICSE/x/";
+
+            var photopath = "C:/inetpub/wwwroot/deshexpressbd/images/driver/";
+
 
             #region WorkWithImages
 
@@ -176,10 +190,28 @@ namespace GrabCarMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(string user,string pass)
         {
-            if (user == "ankur")
+            //user_driver user_driver = db.user_driver.Find(user);
+
+            var result = db.user_driver
+                            .Where(oh => oh.phone == user)                            
+                            .Select(oh => new {id = oh.id})
+                            .ToList();
+
+            if (result.Count>0)
             {
-                return RedirectToAction("DriverHome", "SignUp", new { id = 1 });
+                return RedirectToAction("DriverHome", "SignUp", new { id = result[0].id});
             }
+
+            //if (user_driver == null)
+            //{
+            //    return HttpNotFound();
+            //}
+           
+            //if (user == "ankur")
+            //{
+               
+                
+            //}
             else
             {
                 return View();
@@ -188,7 +220,19 @@ namespace GrabCarMVC.Controllers
 
         public ActionResult DriverHome(int? id)
         {
+            TempData["driv"] = id.ToString();
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //user_driver user_driver = db.user_driver.Find(id);
+            //if (user_driver == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View();
+            //return View();
         }
 
       
