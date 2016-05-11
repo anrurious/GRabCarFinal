@@ -568,7 +568,11 @@ h3 {
     border-left-width: 3px;
     border-right-width: 3px;
 }
-
+.driverPic{
+    border: 1px solid #2ecb71;
+    border-radius:5px;
+    
+}
 .spacing-table {
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 15px;
