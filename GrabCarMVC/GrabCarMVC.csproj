@@ -277,6 +277,7 @@
     <Content Include="Content\image\taxi1.jpg" />
     <Content Include="Content\image\taxi2.jpg" />
     <Content Include="Content\lightbox.min.css" />
+    <Content Include="Content\navigation.css" />
     <Content Include="Content\sequence-theme.intro.css" />
     <Content Include="Content\vertical.news.slider.css" />
     <Content Include="favicon.ico" />
@@ -380,6 +381,8 @@
     <Content Include="Views\Passenger\SignIn.cshtml" />
     <Content Include="Views\SignUp\DriverHome.cshtml" />
     <Content Include="Views\Passenger\PassengerHome.cshtml" />
+    <Content Include="Views\Shared\_drivHome.cshtml" />
+    <Content Include="Views\Driver\DrivTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
