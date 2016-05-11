@@ -1,4 +1,5 @@
-﻿@model GrabCarMVC.Models.user_driver
+﻿
+@model GrabCarMVC.Models.user_driver
 
 @{
     ViewBag.Title = "Details";
@@ -23,7 +24,7 @@
 <br />
 <br />
 <br />
-<div class="col-lg-12 deshDriverHead" align="center">
+<div class="col-lg-12" align="center">
     <h4>
         Welcome To Desh Express Driver's home
 
@@ -33,7 +34,70 @@
 <script>
     $(document).ready(function () {
 
+        //$("#loaderDiv").hide();
+        //$("#pic").hide();
 
+        //$("#tableall").hide();
+
+        //$(".mydata").click(function () {
+
+
+        //});
+        //$.ajaxSetup({
+        //    cache: false
+        //});
+
+        // var datas =
+        //{
+        //    tag: "ditclgetall",
+        //    fullName: "shamol"
+        //}
+        // var txt = "";
+
+        // if (true) {
+        //     //$.ajax({
+        //     //    type: "POST",
+        //     //    url: "http://27.147.141.68/deshexpressbd/api/android_apii.php",
+        //     //    data: datas,
+        //     //    beforeSend: function () {
+        //     //        $("#loaderDiv").show();
+        //     //    },
+        //     //    success: function (data) {
+
+        //     //        $("#table").show();
+        //     //        $.each(data.vals, function (index) {
+        //     //            console.log("ankur");
+        //     //            console.log(index);
+        //     //            console.log(data.vals[index].name);
+        //     //            //var x = data.vals[index].id;
+        //     //            var myInd = index + 1;
+        //     //            txt += "<tr><td>" + myInd + "</td><td>" + data.vals[index].id + "</td><td>" + data.vals[index].name + "</td><td>" + data.vals[index].phone + "</td><td>" + data.vals[index].city + "</td><td>" + data.vals[index].car_model_no + "</td><td>  <label class='plus-item' data-id='" + data.vals[index].id + "'>View</label>  </td></tr>";
+        //     //        }
+
+        //     //        )
+        //     //        if (txt != "") {
+        //     //            $("#table").append(txt).removeClass("hidden");
+        //     //        }
+
+        //     //        $("#loaderDiv").hide();
+        //     //        //<!--   console.log(JSON.stringify(data)); -->
+        //     //        $("#Approvals").hide();
+        //     //        $("#sm").show();
+        //     //        $("#sm").delay(3200).fadeOut(300);
+
+        //     //        //location.href = "DriverApproval.html";
+        //     //    },
+
+        //     //    error: function (jqXHR, exception) {
+
+        //     //        var msg = '';
+
+        //     //        $('#msgv').html(msg);
+        //     //    }
+        //     //    ,
+        //     //    dataType: 'json'
+        //     //});
+        // }
 
         if (true) {
             //var id = $(this).attr("data-id");
@@ -84,19 +148,19 @@
                         console.log(JSON.stringify(data));
 
                         var myInd = 1;
-                        txt += " <div class='col-lg-3'><strong>Name: </strong></div><div class='col-lg-3'>" + data.fullName + "</div>";
-                        txt += "<div class='col-lg-3'> <strong>Phone: </strong></div><div class='col-lg-3'>" + data.phone + "</div> ";
-                        txt += " <div class='col-lg-3'><strong>Email: </strong></div><div class='col-lg-3'>" + data.email + "</div> ";
-                        txt += "<div class='col-lg-3'> <strong>Age: </strong></div><div class='col-lg-3'>" + data.age + "</div> ";
-                        txt += " <div class='col-lg-3'><strong>Present address: </strong></div><div class='col-lg-3'>" + data.present_address + "</div> ";
-                        txt += " <div class='col-lg-3'><strong>City: </strong></div><div class='col-lg-3'>" + data.city + "</div> ";
+                        txt += " <div class='span4'><strong>Name: </strong></div><div class='span4'>" + data.fullName + "</div>";
+                        txt += "<div class='span4'> <strong>Phone: </strong></div><div class='span4'>" + data.phone + "</div> ";
+                        txt += " <div class='span4'><strong>Email: </strong></div><div class='span4'>" + data.email + "</div> ";
+                        txt += "<div class='span4'> <strong>Age: </strong></div><div class='span4'>" + data.age + "</div> ";
+                        txt += " <div class='span4'><strong>Present address: </strong></div><div class='span4'>" + data.present_address + "</div> ";
+                        txt += " <div class='span4'><strong>City: </strong></div><div class='span4'>" + data.city + "</div> ";
 
 
 
-                        txt += "<div class='col-lg-3'><strong>Car Type: </strong></div><div class='col-lg-3'>" + data.car_type + "</div>";
-                        txt += "<div class='col-lg-3'><strong>Car Model: </strong></div><div class='col-lg-3'>" + data.car_model_no + "</div>";
-                        txt += "<div class='col-lg-3'><strong>Manufacture Year: </strong></div><div class='col-lg-3'>" + data.manufacture_year + "</div>";
-                        txt += "<div class='col-lg-3'><strong>Car No: </strong></div><div class='col-lg-3'>" + data.car_no + "</div>";
+                        txt += "<div class='span4'><strong>Car Type: </strong></div><div class='span4'>" + data.car_type + "</div>";
+                        txt += "<div class='span4'><strong>Car Model: </strong></div><div class='span4'>" + data.car_model_no + "</div>";
+                        txt += "<div class='span4'><strong>Manufacture Year: </strong></div><div class='span4'>" + data.manufacture_year + "</div>";
+                        txt += "<div class='span4'><strong>Car No: </strong></div><div class='span4'>" + data.car_no + "</div>";
 
                         var v = "", nid = "", brtc = "", lic = "";
                         v = data.picture;
@@ -112,7 +176,7 @@
 
                         //photo += "<img src=" + nu + " style='width:200px ; height:200px' >";
 
-                        photo += " <div style='text-align:center;padding:10px' class='col-lg-3'><a class='example-image-link' href=" + nu + " data-lightbox='example-1'>  <img src=" + nu + " style='width:200px ; height:200px' ></a></div>";
+                        photo += " <a class='example-image-link' href=" + nu + " data-lightbox='example-1'>  <img src=" + nu + " style='width:200px ; height:200px' >";
 
                         console.log(nidlink);
                         console.log(brtclink);
@@ -120,14 +184,14 @@
 
 
                         //nidphoto += " <a class='example-image-link' href='http://lokeshdhakar.com/projects/lightbox2/images/image-1.jpg' data-lightbox='example-1'>  <img src=" + nidlink + " style='width:500px ; height:200px' >";
-                        nidphoto += "<div style='text-align:center;padding:10px' class='col-lg-3'> <a class='example-image-link' href=" + nidlink + " data-lightbox='example-1'>  <img src=" + nidlink + " style='width:200px ; height:200px' ></a></div>";
+                        nidphoto += " <a class='example-image-link' href=" + nidlink + " data-lightbox='example-1'>  <img src=" + nidlink + " style='width:200px ; height:200px' >";
 
-                        brtcphoto += " <div style='text-align:center;padding:10px' class='col-lg-3'><a class='example-image-link' href=" + brtclink + " data-lightbox='example-1'>  <img src=" + brtclink + " style='width:200px ; height:200px'></a></div>";
+                        brtcphoto += " <a class='example-image-link' href=" + brtclink + " data-lightbox='example-1'>  <img src=" + brtclink + " style='width:200px ; height:200px' >";
 
                         // brtcphoto += "<img src=" + brtclink + " style='width:200px ; height:200px' >";
                         //licphoto += "<img src=" + liclink + " style='width:200px ; height:200px' >";
 
-                        licphoto += " <div style='text-align:center;padding:10px' class='col-lg-3'><a class='example-image-link' href=" + liclink + " data-lightbox='example-1'>  <img src=" + liclink + " style='width:200px ; height:200px'></a></div>";
+                        licphoto += " <a class='example-image-link' href=" + liclink + " data-lightbox='example-1'>  <img src=" + liclink + " style='width:200px ; height:200px' >";
 
 
                         if (txt != "") {
@@ -167,19 +231,19 @@
 </script>
 
 <div>
-    <div class="ContectHead">
-        <asp:Label ID="Label21" runat="server" Text="Approved Drivers" CssClass="Font_header"></asp:Label>
-    </div>
-
-    <div id="loaderDiv">
-
-        <img src="~/Content/image/spinner.gif" width="70" />
-    </div>
-
-
-
-
+<div class="ContectHead">
+    <asp:Label ID="Label21" runat="server" Text="Approved Drivers" CssClass="Font_header"></asp:Label>
 </div>
+
+<div id="loaderDiv">
+ 
+    <img src="~/Content/image/spinner.gif" width="70" />
+</div>
+
+
+
+
+    </div>
 
 @*<%-- NEW ADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD --%>*@
 
@@ -192,7 +256,7 @@
 
 <div id="Div1">
 
-
+   
 </div>
 
 
@@ -204,10 +268,8 @@
 <div id="Div2" class="hidden span12 tblName">
 </div>
 
-<div class="container">
-    <div id ="info" class="col-lg-12">
+<div id="info" class="span12">
 
-    </div>
 
 
 </div>
@@ -216,31 +278,30 @@
 
 </div>
 <hr />
-<div class="container driverPic">
-    <div id="pic" class="col-lg-12" style="padding:20px">
+<div id="pic" class="span12">
 
-        <div id="photoId" class="col-lg-3" align="center">
-            <span style="text-align:center;font-weight:bold;">Photo</span><br />
-        </div>
-
-        <div id="photoNid" class="col-lg-3 " align="center">
-            <span style="text-align: center; font-weight: bold">NID</span><br />
-        </div>
-
-        <div id="photoBrt" class="col-lg-3" align="center">
-            <span style="text-align: center; font-weight: bold">BRTC Document</span><br />
-        </div>
-
-        <div id="photoLic" class="col-lg-3 " align="center">
-            <span style="text-align: center; font-weight: bold">Driving License</span><br />
-        </div>
-
+    <div id="photoId" class="span3">
+        <span class="titlePic">Photo</span>
     </div>
+
+    <div id="photoNid" class="span3 ">
+        <span class="titlePic">NID</span>
+    </div>
+
+    <div id="photoBrt" class="span3">
+        <span class="titlePic">BRTC Document</span>
+    </div>
+
+    <div id="photoLic" class="span3 ">
+        <span class="titlePic">Driving License</span>
+    </div>
+
 </div>
+
 <div class="clearfix"></div>
 
-<div id="xpic" class="col-lg-12 " align="center">
+<div id="xpic">
 
 </div>
 
-<br /><br />
+

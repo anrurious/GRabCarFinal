@@ -35,7 +35,6 @@ namespace GrabCarMVC
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap.min.css",
                       "~/Content/site.css",
-                       "~/Content/navigation.css",
                       "~/Content/vertical.news.slider.css",
                       "~/Content/font-awesome.css",
                       "~/Content/font-awesome.min.css",
