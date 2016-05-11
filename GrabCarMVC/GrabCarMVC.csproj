@@ -379,6 +379,7 @@
     <Content Include="Views\SignUp\Login.cshtml" />
     <Content Include="Views\Passenger\SignIn.cshtml" />
     <Content Include="Views\SignUp\DriverHome.cshtml" />
+    <Content Include="Views\Passenger\PassengerHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
