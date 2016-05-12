@@ -360,5 +360,88 @@
             }
         });
     </script>
+
+    <script>
+        $(window).load(function () {
+
+            $('#step1Detail').show();
+            $('#step2Detail').hide();
+            $('#step3Detail').hide();
+            $('#step4Detail').hide();
+
+            $("#step1").css("background-color", "#2ecb71");
+            $("#step2").css("background-color", "white");
+            $("#step3").css("background-color", "white");
+            $("#step4").css("background-color", "white");
+
+            $("#arrow1").css("color", "#f23c3c");
+            $("#arrow2").css("color", "#f23c3c");
+            $("#arrow3").css("color", "#f23c3c");
+        });
+        $('#step1').click(function () {
+           
+            $('#step1Detail').show();            
+            $('#step2Detail').hide();
+            $('#step3Detail').hide();
+            $('#step4Detail').hide();
+
+            $("#step1").css("background-color", "#2ecb71");
+            $("#step2").css("background-color", "white");
+            $("#step3").css("background-color", "white");
+            $("#step4").css("background-color", "white");
+
+            $("#arrow1").css("color", "#f23c3c");
+            $("#arrow2").css("color", "#f23c3c");
+            $("#arrow3").css("color", "#f23c3c");
+        });
+        $('#step2').click(function () {
+
+            $('#step1Detail').hide();
+            $('#step2Detail').show();
+            $('#step3Detail').hide();
+            $('#step4Detail').hide();
+
+            $("#step1").css("background-color", "white");
+            $("#step2").css("background-color", "#2ecb71");
+            $("#step3").css("background-color", "white");
+            $("#step4").css("background-color", "white");
+
+            $("#arrow1").css("color", "#2ecb71");
+            $("#arrow2").css("color", "#f23c3c");
+            $("#arrow3").css("color", "#f23c3c");
+        });
+        $('#step3').click(function () {
+
+            $('#step1Detail').hide();
+            $('#step2Detail').hide();
+            $('#step3Detail').show();
+            $('#step4Detail').hide();
+
+            $("#step1").css("background-color", "white");
+            $("#step2").css("background-color", "white");
+            $("#step3").css("background-color", "#2ecb71");
+            $("#step4").css("background-color", "white");
+
+            $("#arrow1").css("color", "#2ecb71");
+            $("#arrow2").css("color", "#2ecb71");
+            $("#arrow3").css("color", "#f23c3c");
+        });
+        $('#step4').click(function () {
+
+            $('#step1Detail').hide();
+            $('#step2Detail').hide();
+            $('#step3Detail').hide();
+            $('#step4Detail').show();
+
+            $("#step1").css("background-color", "white");
+            $("#step2").css("background-color", "white");
+            $("#step3").css("background-color", "white");
+            $("#step4").css("background-color", "#2ecb71");
+
+            $("#arrow1").css("color", "#2ecb71");
+            $("#arrow2").css("color", "#2ecb71");
+            $("#arrow3").css("color", "#2ecb71");
+        });
+    </script>
 </body>
 </html>
