@@ -15,6 +15,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using System.Security.Claims;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using System.Web.Routing;
+//using Owin;
+//using Microsoft.Owin.Security.Cookies;
+//using Microsoft.Owin;
 
 
 namespace GrabCarMVC.Controllers
@@ -189,24 +196,101 @@ namespace GrabCarMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(string user,string pass)
-        {          
-            var result = db.user_driver
-                            .Where(oh => oh.email == user)                            
-                            .Select(oh => new {id = oh.id})
-                            .ToList();
-
-            if (result.Count>0)
+        {
+            if (UserManager(user, pass))
             {
-                return RedirectToAction("DriverHome", "SignUp", new { id = result[0].id});
+                var ident = new ClaimsIdentity(
+                  new[] { 
+              // adding following 2 claim just for supporting default antiforgery provider
+              new Claim(ClaimTypes.NameIdentifier, user),
+              new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "ASP.NET Identity", "http://www.w3.org/2001/XMLSchema#string"),
+
+              new Claim(ClaimTypes.Name,user),
+
+              // optionally you could add roles if any
+              new Claim(ClaimTypes.Role, "RoleName"),
+              new Claim(ClaimTypes.Role, "AnotherRole"),
+
+             },
+                  DefaultAuthenticationTypes.ApplicationCookie);
+
+                HttpContext.GetOwinContext().Authentication.SignIn(
+                   new AuthenticationProperties { IsPersistent = false }, ident);
+
+               // return RedirectToAction("DriverHome"); // auth succeed 
+
+                return RedirectToAction("DriverHome", "SignUp", new { id = 4 });
+
             }
+            // invalid username or password
+            ModelState.AddModelError("", "invalid username or password");
+            return View();
+     
+
+            //var result = db.user_driver
+            //                .Where(oh => oh.email == user)                            
+            //                .Select(oh => new {id = oh.id})
+            //                .ToList();
+
+            //if (result.Count>0)
+            //{
+             //  return RedirectToAction("DriverHome", "SignUp", new { id = result[0].id});
+            //}
 
           
-            else
-            {
-                return View();
-            }
+            //else
+            //{
+            //    return View();
+            //}
+
+
+
         }
 
+       
+            //protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+            //  {
+            //        // Returns HTTP 401 by default - see HttpUnauthorizedResult.cs.
+            //       filterContext.Result = new RedirectToRouteResult(
+            //       new RouteValueDictionary 
+            //       {
+            //          { "action", "YourActionName" },
+            //          { "controller", "YourControllerName" },
+            //          { "parameterName", "YourParameterValue" }
+            //          });
+            //  }
+
+            //public void ConfigureAuth(IAppBuilder app)
+            //{
+            //    app.UseCookieAuthentication(new CookieAuthenticationOptions
+            //    {
+            //        AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+            //        LoginPath = new PathString("/Home/Index")
+            //    });
+            //    app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+            //}
+
+        private bool UserManager(string username, string password)
+        {
+            
+                
+                    // if your users set name is Users
+            var result = db.user_driver
+                            .Where(oh => oh.email == username)
+                            .Select(oh => new { id = oh.id })
+                            .ToList();
+                if (result.Count > 0)
+                {
+                    return true;
+                }
+            else
+                {
+                    return false;
+                }
+            
+        }
+
+        [Authorize]
         public ActionResult DriverHome(int? id)
         {
             TempData["driv"] = id.ToString();
